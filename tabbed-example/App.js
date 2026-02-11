@@ -80,8 +80,6 @@ function HomeScreen() {
 
 const Tab = createBottomTabNavigator();
 
-
-
 export default function App() {
   return (
     <NavigationContainer>
@@ -112,9 +110,6 @@ export default function App() {
         <Tab.Screen name="Home" component={HomeScreen} />
         <Tab.Screen name="Cats" component={CatScreen} />
         <Tab.Screen name="Dogs" component={DogScreen} />
-        
-        
-        
       </Tab.Navigator>
     </NavigationContainer>
   );
