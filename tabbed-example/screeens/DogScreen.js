@@ -28,3 +28,5 @@ function DogScreen() {
       </View>
     );
   }
+
+  export default DogScreen;

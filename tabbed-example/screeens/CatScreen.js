@@ -28,3 +28,5 @@ function CatScreen() {
       </View>
     );
   }
+
+  export default CatScreen;
