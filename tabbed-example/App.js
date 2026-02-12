@@ -1,45 +1,12 @@
 import * as React from 'react';
-import { Text, View, ScrollView } from 'react-native';
+import { Text, View } from 'react-native';
 import { NavigationContainer } from '@react-navigation/native';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import { Ionicons } from '@expo/vector-icons';
-import breedData from './cat-and-dog-breeds.json';
-
-const catBreeds = Object.entries(breedData.cat_breeds || {})
-  .map(([name, traits]) => ({
-    name,
-    traits,
-  }));
-
-const dogBreeds = Object.entries(breedData.dog_breeds || {})
-  .map(([name, traits]) => ({
-    name,
-    traits,
-  }));
+import CatScreen from './screens/CatScreen';
+import DogScreen from './screens/DogScreen';
 
 
-
-function DogScreen() {
-  return (
-    <View style={{ flex: 1 }}>
-      <ScrollView>
-        {dogBreeds.map((breed) => {
-          const traits = Object.entries(breed.traits || {});
-          return (
-            <View key={breed.name}>
-              <Text>{breed.name}</Text>
-              {traits.map(([trait, value]) => (
-                <View key={trait}>
-                  <Text>{trait}: {value}</Text>
-                </View>
-              ))}
-            </View>
-          );
-        })}
-      </ScrollView>
-    </View>
-  );
-}
 
 function HomeScreen() {
   return (
@@ -70,9 +37,7 @@ export default function App() {
               Home: focused ? 'home' : 'home-outline',
               Cats: focused ? 'heart' : 'heart-outline',
               Dogs: focused ? 'paw' : 'paw-outline',
-              Settings: focused ? 'settings' : 'settings-outline',
-              Notifications: focused ? 'notifications' : 'notifications-outline',
-              Profile: focused ? 'person' : 'person-outline',
+              
             };
 
             return (
