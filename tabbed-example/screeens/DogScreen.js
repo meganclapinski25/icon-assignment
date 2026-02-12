@@ -1,3 +1,12 @@
+import React from 'react';
+import{View, Text, ScrollView} from 'react-native';
+import breedData from '../cat-and-dog-breeds.json';
+
+const dogBreeds = Object.entries(breedData.dogs).map(([name,traits]) =>{
+    name,
+    traits
+})
+
 function DogScreen() {
     return (
       <View style={{ flex: 1 }}>
