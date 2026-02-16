@@ -1,32 +1,53 @@
 import React from 'react';
-import { View, Text, ScrollView } from 'react-native';
+import { View, Text, ScrollView, StyleSheet, TouchableOpacity } from 'react-native';
 import breedData from '../cat-and-dog-breeds.json';
+import { useNavigation } from '@react-navigation/native';
 
-const dogBreeds = Object.entries(breedData.dog_breeds || {}).map(([name, traits]) => ({
-  name,
-  traits,
-}));
+const dogBreeds = Object.keys(breedData.dog_breeds || {});
 
 function DogScreen() {
+  const navigation = useNavigation();
   return (
-    <View style={{ flex: 1 }}>
+    <View style={styles.container}>
       <ScrollView>
-        {dogBreeds.map((breed) => {
-          const traits = Object.entries(breed.traits || {});
-          return (
-            <View key={breed.name}>
-              <Text>{breed.name}</Text>
-              {traits.map(([trait, value]) => (
-                <View key={trait}>
-                  <Text>{trait}: {value}</Text>
-                </View>
-              ))}
-            </View>
-          );
-        })}
+        {dogBreeds.map((name) =>(
+          <TouchableOpacity
+          key = {name}
+          style = {styles.breedItem}
+          onPress={() => navigation.navigate('BreedDetails', {name})}
+          >
+            <Text style = {styles.breedName}>{name}</Text>
+            <Text style = {styles.arrow}>›</Text>
+
+          </TouchableOpacity>
+        ))}
       </ScrollView>
     </View>
   );
 }
+
+const styles = StyleSheet.create({
+  container: { 
+    flex: 1, 
+    backgroundColor: '#fff' 
+  },
+  breedItem: {
+    flexDirection: 'row', 
+    justifyContent: 'space-between', 
+    alignItems: 'center',
+    paddingVertical: 15,
+     paddingHorizontal: 20,
+    borderBottomWidth: 1, 
+    borderBottomColor: '#eee',
+  },
+  breedName: { 
+    fontSize: 18,
+    color: '#333' 
+  },
+  arrow: { 
+    fontSize: 24, 
+    color: '#667eea' 
+  },
+});
 
 export default DogScreen;

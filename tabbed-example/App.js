@@ -64,7 +64,7 @@ export default function App() {
     <NavigationContainer>
       <Stack.Navigator>
         <Stack.Screen
-          name="Tabs"
+          name="Breeds"
           component={TabNav}
           options={{ headerShown: false }}
         />

@@ -15,7 +15,6 @@ function BreedDeatils({route}){
             <View key={trait} style={styles.traitRow}>
               <Text style={styles.traitName}>{trait}</Text>
               <Text style={styles.traitValue}>{'★'.repeat(value)}{'☆'.repeat(5 - value)}</Text>
-
             </View>
           ))}
         </ScrollView>
