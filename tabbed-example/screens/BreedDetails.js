@@ -1,5 +1,5 @@
 import React from 'react';
-import {View, Text, ScrollView} from 'react-native';
+import {View, Text, ScrollView, StyleSheet} from 'react-native';
 import breedData from '../cat-and-dog-breeds.json';
 
 
@@ -9,13 +9,29 @@ function BreedDeatils(){
     const traits = breedData.cat_breeds[name] || breedData.dog_breeds[name];
 
     return (
-        <ScrollView style={{ padding: 20 }}>
-          <Text style={{ fontSize: 24, fontWeight: 'bold', marginBottom: 15 }}>{name}</Text>
+        <ScrollView style={ styles.container }>
+          <Text style={ styles.breedName}>{name}</Text>
           {Object.entries(traits).map(([trait, value]) => (
-            <Text key={trait} style={{ fontSize: 16, paddingVertical: 5 }}>
-              {trait}: {value}
-            </Text>
+           <View key = {traits} style={styles.traitRow}>
+              <Text style = {styles.traitName}>{traits}</Text>
+              <Text style = {style.traitValue}>{value}/5</Text>
+
+
+           </View>
           ))}
         </ScrollView>
       );
 }
+const styles = StyleSheet.create({
+  container: { flex: 1, padding: 20, backgroundColor: '#fff' },
+  breedName: { fontSize: 28, fontWeight: 'bold', color: '#667eea', marginBottom: 20 },
+  traitRow: {
+    flexDirection: 'row', justifyContent: 'space-between',
+    paddingVertical: 12, paddingHorizontal: 10,
+    borderBottomWidth: 1, borderBottomColor: '#eee',
+  },
+  traitName: { fontSize: 16, color: '#333' },
+  traitValue: { fontSize: 16, fontWeight: 'bold', color: '#667eea' },
+});
+
+export default BreedDetails;
