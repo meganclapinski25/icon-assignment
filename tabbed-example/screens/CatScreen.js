@@ -3,10 +3,7 @@ import { View, Text, ScrollView, StyleSheet, TouchableOpacity } from 'react-nati
 import breedData from '../cat-and-dog-breeds.json';
 import { useNavigation } from '@react-navigation/native';
 
-const catBreeds = Object.entries(breedData.cat_breeds || {}).map(([name, traits]) => ({
-  name,
-  traits,
-}));
+const catBreeds = Object.keys(breedData.cat_breeds || {});
 
 function CatScreen() {
   const navigation = useNavigation();
