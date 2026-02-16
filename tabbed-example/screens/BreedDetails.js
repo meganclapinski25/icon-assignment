@@ -14,7 +14,8 @@ function BreedDeatils({route}){
           {Object.entries(traits).map(([trait, value]) => (
             <View key={trait} style={styles.traitRow}>
               <Text style={styles.traitName}>{trait}</Text>
-              <Text style={styles.traitValue}>{value}/5</Text>
+              <Text style={styles.traitValue}>{'★'.repeat(value)}{'☆'.repeat(5 - value)}</Text>
+
             </View>
           ))}
         </ScrollView>

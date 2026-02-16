@@ -27,14 +27,27 @@ function CatScreen() {
 }
 
 const styles = StyleSheet.create({
-  container: { flex: 1, backgroundColor: '#fff' },
-  breedItem: {
-    flexDirection: 'row', justifyContent: 'space-between', alignItems: 'center',
-    paddingVertical: 15, paddingHorizontal: 20,
-    borderBottomWidth: 1, borderBottomColor: '#eee',
+  container: { 
+    flex: 1, 
+    backgroundColor: '#fff' 
   },
-  breedName: { fontSize: 18, color: '#333' },
-  arrow: { fontSize: 24, color: '#667eea' },
+  breedItem: {
+    flexDirection: 'row', 
+    justifyContent: 'space-between', 
+    alignItems: 'center',
+    paddingVertical: 15,
+     paddingHorizontal: 20,
+    borderBottomWidth: 1, 
+    borderBottomColor: '#eee',
+  },
+  breedName: { 
+    fontSize: 18,
+    color: '#333' 
+  },
+  arrow: { 
+    fontSize: 24, 
+    color: '#667eea' 
+  },
 });
 
 export default CatScreen;
