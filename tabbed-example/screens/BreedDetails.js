@@ -4,7 +4,7 @@ import breedData from '../cat-and-dog-breeds.json';
 
 
 
-function BreedDeatils(){
+function BreedDeatils({route}){
     const {name } = route.params
     const traits = breedData.cat_breeds[name] || breedData.dog_breeds[name];
 
@@ -14,7 +14,7 @@ function BreedDeatils(){
           {Object.entries(traits).map(([trait, value]) => (
            <View key = {traits} style={styles.traitRow}>
               <Text style = {styles.traitName}>{traits}</Text>
-              <Text style = {style.traitValue}>{value}/5</Text>
+              <Text style = {styles.traitValue}>{value}/5</Text>
 
 
            </View>
@@ -34,4 +34,4 @@ const styles = StyleSheet.create({
   traitValue: { fontSize: 16, fontWeight: 'bold', color: '#667eea' },
 });
 
-export default BreedDetails;
+export default BreedDeatils;
