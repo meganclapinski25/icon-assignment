@@ -12,12 +12,10 @@ function BreedDeatils({route}){
         <ScrollView style={ styles.container }>
           <Text style={ styles.breedName}>{name}</Text>
           {Object.entries(traits).map(([trait, value]) => (
-           <View key = {traits} style={styles.traitRow}>
-              <Text style = {styles.traitName}>{traits}</Text>
-              <Text style = {styles.traitValue}>{value}/5</Text>
-
-
-           </View>
+            <View key={trait} style={styles.traitRow}>
+              <Text style={styles.traitName}>{trait}</Text>
+              <Text style={styles.traitValue}>{value}/5</Text>
+            </View>
           ))}
         </ScrollView>
       );
